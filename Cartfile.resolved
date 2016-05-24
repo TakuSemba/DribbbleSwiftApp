@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "3.4.0"
+github "Hearst-DD/ObjectMapper" "1.3.0"
+github "uacaps/PageMenu" "1.2.9"
+github "ReactiveX/RxSwift" "2.5.0"
+github "rs/SDWebImage" "3.7.6"

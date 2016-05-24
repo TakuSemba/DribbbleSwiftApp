@@ -1,0 +1,10 @@
+framework module PageMenu {
+  umbrella header "PageMenu.h"
+
+  export *
+  module * { export * }
+}
+
+module PageMenu.Swift {
+    header "PageMenu-Swift.h"
+}
