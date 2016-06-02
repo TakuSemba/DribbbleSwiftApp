@@ -4,13 +4,6 @@ This project is based off of [Dribble](http://developer.dribbble.com/), which is
 
 ![dribbble_swift_app](http://i.makeagif.com/media/6-02-2016/2tOJU_.gif)
 
-
-
-# How to use 
-This app requires you to have your own API key. 
-You can get it in the Dribbble web site above.
-Once you get it, just put it in the code
-
 it would be realy appreciated, if you give me a pull request. thank you.
 
 # Lisence
