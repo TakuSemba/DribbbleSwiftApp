@@ -28,6 +28,9 @@ class ShotCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         let nib = UINib(nibName: View.SHOT_COLLECTION_VIEW_CELL, bundle:nil)
         self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: View.SHOT_COLLECTION_VIEW_CELL)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshInvoked), forControlEvents: UIControlEvents.ValueChanged)
+        collectionView?.addSubview(refreshControl)
     }
     
     func loadShotsFirst(){
@@ -60,6 +63,13 @@ class ShotCollectionViewController: UICollectionViewController {
             .addDisposableTo(disposeBag)
     }
     
+    func refreshInvoked(sender:AnyObject) {
+        sender.beginRefreshing()
+        self.shots.removeAll()
+        loadShotsFirst()
+        sender.endRefreshing()
+    }
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -74,6 +84,9 @@ class ShotCollectionViewController: UICollectionViewController {
         if shots.count != 0 {
             let shot = shots[indexPath.row]
             cell.imageView.sd_setImageWithURL(NSURL(string: shot.image.teaser!)!)
+        } else {
+            let placeHolder = UIImage(named: "dribbble_placeholder2.png")
+            cell.imageView.image = placeHolder
         }
         
         if shots.count - 1 == indexPath.row && page < 5 {
